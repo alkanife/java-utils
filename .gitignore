@@ -1,0 +1,22 @@
+### Project builds
+build/
+
+### Maven
+target/
+
+### IntelliJ
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+.idea/discord.xml
+.idea/inspectionProfiles/
+.idea/intellij-javadocs-4.0.1.xml
+.idea/misc.xml
+.idea/vcs.xml
+
+### VScode
+.vscode/
+
+### MacOS
+.DS_Store
