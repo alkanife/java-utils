@@ -58,9 +58,20 @@ public class BuildUtils {
             Properties properties = new Properties();
             properties.load(new StringReader(content));
 
+            // Parse properties
             version = properties.getProperty("build-version", "unknown");
             buildTime = properties.getProperty("build-time", "unknown");
             gitRevision = properties.getProperty("git-revision", "none");
+
+            // Handle maven fails
+            if (version.equalsIgnoreCase("${project.version}"))
+                version = "unknown";
+
+            if (version.equalsIgnoreCase("${build.time}"))
+                buildTime = "unknown";
+
+            if (version.equalsIgnoreCase("${git.revision}"))
+                gitRevision = "none";
         } catch (Exception exception) {
             return null;
         }
