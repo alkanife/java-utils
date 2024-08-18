@@ -1,6 +1,20 @@
 # Build utils
 A collection of utility classes for Java builds.
 
+**Add to your pom.xml:**
+````xml
+<repository>
+    <id>alka-repo</id>
+    <url>https://repo.alka.dev/repository/maven-public/</url>
+</repository>
+
+<dependency>
+    <groupId>dev.alka</groupId>
+    <artifactId>build-utils</artifactId>
+    <version>VERSION</version>
+</dependency>
+````
+
 ## Build meta
 All my projects are built to have a properties file containing the version, build date, and git revision.
 

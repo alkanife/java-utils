@@ -1,6 +1,20 @@
 # CLI utils
 A collection of utility classes for my CLI projects.
 
+**Add to your pom.xml:**
+````xml
+<repository>
+    <id>alka-repo</id>
+    <url>https://repo.alka.dev/repository/maven-public/</url>
+</repository>
+
+<dependency>
+    <groupId>dev.alka</groupId>
+    <artifactId>cli-utils</artifactId>
+    <version>VERSION</version>
+</dependency>
+````
+
 ## Pretty usage
 This allows you to generate a vertical command usage, with a any `Map<String, String>`
 
