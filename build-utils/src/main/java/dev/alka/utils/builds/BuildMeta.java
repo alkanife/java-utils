@@ -63,4 +63,43 @@ public class BuildMeta {
     public String toString() {
         return "BuildMeta{" + "version='" + version + '\'' + ", buildTime='" + buildTime + '\'' + ", gitRevision='" + gitRevision + '\'' + '}';
     }
+
+    /**
+     * Get complete version string
+     *
+     * @return Complete version (version-buildTime-gitRevision)
+     */
+    public String getCompleteVersion() {
+        String version = getVersion();
+        String buildTime = getBuildTime();
+        String gitRevision = getGitRevision();
+
+        if (version == null)
+            version = "unknown";
+
+        if (buildTime == null)
+            buildTime = "unknown";
+
+        if (gitRevision == null)
+            gitRevision = "noGit";
+
+        return version + "-" + buildTime + "-" + gitRevision;
+    }
+
+    /**
+     * Get version and build time. Will show the build time only if not null or  unknown
+     *
+     * @return version (00/00/0000 00:00:00 CEST)
+     */
+    public String getVersionAndBuildTime() {
+        String string = version;
+
+        if (buildTime != null)
+            if (!buildTime.isEmpty())
+                if (!buildTime.isBlank())
+                    if (!buildTime.equalsIgnoreCase("unknown"))
+                        string = string + " (" + buildTime + ")";
+
+        return string;
+    }
 }

@@ -21,11 +21,10 @@
 // SOFTWARE.
 package dev.alka.utils.builds;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringReader;
+import java.io.*;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.security.CodeSource;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -106,5 +105,26 @@ public class BuildUtils {
         return vLower.contains("snapshot")
                 || vLower.contains("dev")
                 || vLower.contains("preview");
+    }
+
+    /**
+     * Get jar name of a class.
+     *
+     * @param clazz A Java class
+     * @return Jar name, or "unknown"
+     */
+    public String getJarName(Class<?> clazz) {
+        String jar = "unknown";
+
+        try {
+            CodeSource codeSource = clazz.getProtectionDomain().getCodeSource();
+            if (codeSource != null) {
+                URL jarUrl = codeSource.getLocation();
+                String jarPath = jarUrl.getPath();
+                jar = new File(jarPath).getName();
+            }
+        } catch (Exception ignore) { }
+
+        return jar;
     }
 }

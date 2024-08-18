@@ -28,8 +28,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>dev.alka</groupId>
-        <artifactId>utils</artifactId>
-        <version>1.0.0</version>
+        <artifactId>java-utils</artifactId>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>jcommander-utils</artifactId>
