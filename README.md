@@ -11,6 +11,6 @@
 
 ## Overview
 This repository is a collection of all my utility classes. Click on one for more information:
-- [Build utils](build-utils/README.md)
-- [CLI utils](cli-utils/README.md)
-- [jCommander utils](jcommander-utils/README.md)
+- [Build utils](build-utils)
+- [CLI utils](cli-utils)
+- [jCommander utils](jcommander-utils)
