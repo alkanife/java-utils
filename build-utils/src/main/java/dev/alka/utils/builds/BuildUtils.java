@@ -66,10 +66,10 @@ public class BuildUtils {
             if (version.equalsIgnoreCase("${project.version}"))
                 version = "unknown";
 
-            if (version.equalsIgnoreCase("${build.time}"))
+            if (buildTime.equalsIgnoreCase("${build.time}"))
                 buildTime = "unknown";
 
-            if (version.equalsIgnoreCase("${git.revision}"))
+            if (gitRevision.equalsIgnoreCase("${git.revision}"))
                 gitRevision = "none";
         } catch (Exception exception) {
             return null;
