@@ -113,7 +113,7 @@ public class BuildUtils {
      * @param clazz A Java class
      * @return Jar name, or "unknown"
      */
-    public String getJarName(Class<?> clazz) {
+    public static String getJarName(Class<?> clazz) {
         String jar = "unknown";
 
         try {
