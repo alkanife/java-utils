@@ -9,7 +9,7 @@ A collection of utility classes for Java builds.
 </repository>
 
 <dependency>
-    <groupId>dev.alka</groupId>
+    <groupId>dev.alka.javautils</groupId>
     <artifactId>build-utils</artifactId>
     <version>VERSION</version>
 </dependency>

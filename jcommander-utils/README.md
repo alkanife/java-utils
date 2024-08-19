@@ -9,7 +9,7 @@ A collection of utility classes for jCommander.
 </repository>
 
 <dependency>
-    <groupId>dev.alka</groupId>
+    <groupId>dev.alka.javautils</groupId>
     <artifactId>jcommander-utils</artifactId>
     <version>VERSION</version>
 </dependency>

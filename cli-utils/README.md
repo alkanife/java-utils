@@ -9,8 +9,8 @@ A collection of utility classes for my CLI projects.
 </repository>
 
 <dependency>
-    <groupId>dev.alka</groupId>
-    <artifactId>cli-utils</artifactId>
+    <groupId>dev.alka.javautils</groupId>
+    <artifactId>build-utils</artifactId>
     <version>VERSION</version>
 </dependency>
 ````
