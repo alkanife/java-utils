@@ -87,7 +87,7 @@ public class BuildMeta {
     }
 
     /**
-     * Get version and build time. Will show the build time only if not null or  unknown
+     * Get version and build time. Will show the build time only if not null or unknown
      *
      * @return version (00/00/0000 00:00:00 CEST)
      */
