@@ -26,12 +26,13 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class JsonKeys {
 
     private String json;
-    private HashMap<String, Object> keys;
+    private LinkedHashMap<String, Object> keys;
 
     private final Gson gson;
 
@@ -42,7 +43,7 @@ public class JsonKeys {
      */
     public JsonKeys(String json) {
         this.json = json;
-        this.keys = new HashMap<>();
+        this.keys = new LinkedHashMap<>();
         this.gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
 
         Map<?, LinkedTreeMap<?, ?>> map = gson.fromJson(json, Map.class);
@@ -87,7 +88,7 @@ public class JsonKeys {
      *
      * @param keys A new HashMap
      */
-    public void setKeys(HashMap<String, Object> keys) {
+    public void setKeys(LinkedHashMap<String, Object> keys) {
         this.keys = keys;
     }
 
@@ -109,6 +110,22 @@ public class JsonKeys {
      * @return The value
      */
     public Object getKey(String key) {
+        return keys.get(key);
+    }
+
+    /**
+     * Get a key's value, replace with the default value if not found
+     *
+     * @param key The key
+     * @param defaultValue The default value
+     * @return The final value
+     */
+    public Object getKey(String key, Object defaultValue) {
+        if (!keys.containsKey(key)) {
+            keys.put(key, defaultValue);
+            updateJson();
+        }
+
         return keys.get(key);
     }
 

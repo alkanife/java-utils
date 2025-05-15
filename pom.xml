@@ -29,12 +29,12 @@
 
     <groupId>dev.alka.javautils</groupId>
     <artifactId>java-utils</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <packaging>pom</packaging>
 	
 	<name>utils</name>
-	<description>A compilation of all Alkanife's utility classes</description>
-	<url>https://github.com/alkanife/utils</url>
+	<description>A compilation of all Alkanife's java utility classes</description>
+	<url>https://github.com/alkanife/java-utils</url>
 
     <licenses>
         <license>

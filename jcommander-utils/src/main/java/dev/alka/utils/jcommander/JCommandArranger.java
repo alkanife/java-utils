@@ -24,15 +24,17 @@ package dev.alka.utils.jcommander;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterDescription;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class JCommandArranger {
 
-    private final JCommander jCommander;
-
-    public JCommandArranger(JCommander jCommander) {
-        this.jCommander = jCommander;
+    /**
+     * This method will arrange the jCommander parameters according to their .order().
+     *
+     * @return An LinkedHashMap of jCommander's parameters, with the parameter names as the key, and the description as the value.
+     */
+    public static List<ParameterDescription> arrange(JCommander jCommander) {
+        return arrange(jCommander.getParameters());
     }
 
     /**
@@ -40,21 +42,9 @@ public class JCommandArranger {
      *
      * @return An LinkedHashMap of jCommander's parameters, with the parameter names as the key, and the description as the value.
      */
-    public LinkedHashMap<String, String> getOrderedParameters() {
-        HashMap<Integer, ParameterDescription> orderMap = new HashMap<>();
-
-        for (ParameterDescription p : jCommander.getParameters())
-            orderMap.put(p.getParameter().order(), p);
-
-        LinkedHashMap<String, String> commands = new LinkedHashMap<>();
-
-        for (int i = 1; i <= orderMap.size(); i++) {
-            ParameterDescription param = orderMap.get(i);
-
-            if (param != null)
-                commands.put(param.getNames(), param.getDescription());
-        }
-
-        return commands;
+    public static List<ParameterDescription> arrange(List<ParameterDescription> parameterDescriptions) {
+        List<ParameterDescription> sorted = new ArrayList<>(parameterDescriptions);
+        sorted.sort(Comparator.comparingInt(p -> p.getParameter().order()));
+        return sorted;
     }
 }
